@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ollama-council"
+version = "0.1.0"
+description = "Adaptive multi-model council for local Ollama models: two models cross-check, a third breaks ties."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Victor Navejar (Navii)" }]
+keywords = ["ollama", "llm", "local-llm", "ensemble", "council", "offline"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+council = "ollama_council.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/naviidaviimusic/ollama-council"
+
+[tool.setuptools]
+packages = ["ollama_council"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["UP006", "UP035"]
